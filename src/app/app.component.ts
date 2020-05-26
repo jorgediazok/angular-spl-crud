@@ -27,4 +27,13 @@ export class AppComponent {
   openForEdit(employee: Employee) {
     this.selectedEmployee = employee;
   }
+
+  delete() {
+    if (confirm('Are you sure you want to delete the employee?')) {
+      this.employeeArray = this.employeeArray.filter(
+        (x) => x != this.selectedEmployee
+      );
+      this.selectedEmployee = new Employee();
+    }
+  }
 }

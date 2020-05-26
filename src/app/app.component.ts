@@ -12,4 +12,19 @@ export class AppComponent {
     { id: 2, name: 'Mumi', country: 'India' },
     { id: 3, name: 'Hugo', country: 'Venezuela' },
   ];
+
+  selectedEmployee: Employee = new Employee();
+
+  addOrEdit() {
+    if (this.selectedEmployee.id === 0) {
+      this.selectedEmployee.id = this.employeeArray.length + 1;
+      this.employeeArray.push(this.selectedEmployee);
+    }
+
+    this.selectedEmployee = new Employee();
+  }
+
+  openForEdit(employee: Employee) {
+    this.selectedEmployee = employee;
+  }
 }
